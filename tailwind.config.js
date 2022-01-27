@@ -1,7 +1,12 @@
 module.exports = {
-  content: ["./src/**/*.{html,js}"],
+  content: [
+    "./assets/**/*.{vue,js,ts,jsx,tsx}",
+    "./templates/**/*.{html,twig}",
+    // "./src/**/*.{php}",
+  ],
   theme: {
-    extend: {},
+    extend: {}
   },
+  variants: {},
   plugins: [],
 }

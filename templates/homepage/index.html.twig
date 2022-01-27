@@ -7,37 +7,32 @@
 {% block title %}Hello HomepageController!{% endblock %}
 
 {% block content %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
+    <div class="example-wrapper">
+        {% if is_granted('ROLE_USER') %}
+            <h1 class="text-3xl font-bold underline">Hello {{ app.user.email }}! ✅</h1>
+        {% else %}
+            <h1 class="text-3xl font-bold underline">Hello {{ controller_name }}! ✅</h1>
+        {% endif %}
 
-<div class="example-wrapper">
-    {% if is_granted('ROLE_USER') %}
-        <h1>Hello {{ app.user.email }}! ✅</h1>
-    {% else %}
-        <h1>Hello {{ controller_name }}! ✅</h1>
-    {% endif %}
+        This friendly message is coming from:
+        <ul>
+            <li>Your controller at <code><a href="{{ '/Users/johann/workspace/symfony-web-app/src/Controller/HomepageController.php'|file_link(0) }}">src/Controller/HomepageController.php</a></code></li>
+            <li>Your template at <code><a href="{{ '/Users/johann/workspace/symfony-web-app/templates/homepage/index.html.twig'|file_link(0) }}">templates/homepage/index.html.twig</a></code></li>
+        </ul>
+    </div>
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ '/Users/johann/workspace/symfony-web-app/src/Controller/HomepageController.php'|file_link(0) }}">src/Controller/HomepageController.php</a></code></li>
-        <li>Your template at <code><a href="{{ '/Users/johann/workspace/symfony-web-app/templates/homepage/index.html.twig'|file_link(0) }}">templates/homepage/index.html.twig</a></code></li>
-    </ul>
-</div>
+    <p>La langue actuelle est : {{ app.request.locale }}</p>
 
-<p>La langue actuelle est : {{ app.request.locale }}</p>
+    <p>La variable search passé en paramètre à l'url est : {{ app.request.get('search')|default('search is not defined') }}</p>
+    <p>La varariable page2 passé en paramètre à l'url est : {{ app.request.get('page2')|default('page2 is not defined') }}</p>
 
-<p>La variable search passé en paramètre à l'url est : {{ app.request.get('search')|default('search is not defined') }}</p>
-<p>La varariable page2 passé en paramètre à l'url est : {{ app.request.get('page2')|default('page2 is not defined') }}</p>
+    {#  {{ macros }}#}
 
-{#  {{ macros }}#}
+        {% set content %}
+        # Hello world
+        - point 1
+        - point 2
+        {% endset %}
 
-    {% set content %}
-    # Hello world
-    - point 1
-    - point 2
-    {% endset %}
-
-    {{ content | markdown_to_html|raw }}
-{% endblock %}
+        {{ content | markdown_to_html|raw }}
+    {% endblock %}
