@@ -6,12 +6,21 @@
 
 {% block title %}Hello HomepageController!{% endblock %}
 
+{% block header %}
+    {% if is_granted('ROLE_USER') %}
+        <a href="{{ path('user_account') }}">Mon compte</a>
+    {% else %}
+        <a href="{{ path('login') }}">Connexion</a>
+        <a href="{{ path('register') }}">Inscription</a>
+    {% endif %}
+{% endblock %}
+
 {% block content %}
     <div class="example-wrapper">
         {% if is_granted('ROLE_USER') %}
-            <h1 class="text-3xl font-bold underline">Hello {{ app.user.email }}! ✅</h1>
+            <h1 class="text-3xl font-bold underline">Bienvenue {{ app.user.email }} sur la glace des seigneurs !</h1>
         {% else %}
-            <h1 class="text-3xl font-bold underline">Hello {{ controller_name }}! ✅</h1>
+            <h1 class="text-3xl font-bold underline">Bienvenue sur la glace des seigneurs !</h1>
         {% endif %}
 
         This friendly message is coming from:

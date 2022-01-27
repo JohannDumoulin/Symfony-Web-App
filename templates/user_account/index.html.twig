@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello UserAccountController!{% endblock %}
+
+{% block content %}
+
+<div class="example-wrapper">
+    <h1>Hello {{ controller_name }}! ✅</h1>
+
+    <p>User account</p>
+
+    <a href="{{ path('app_logout') }}">Déconnexion</a>
+
+    This friendly message is coming from:
+    <ul>
+        <li>Your controller at <code><a href="{{ '/Users/johann/workspace/symfony-web-app/src/Controller/UserAccountController.php'|file_link(0) }}">src/Controller/UserAccountController.php</a></code></li>
+        <li>Your template at <code><a href="{{ '/Users/johann/workspace/symfony-web-app/templates/user_account/index.html.twig'|file_link(0) }}">templates/user_account/index.html.twig</a></code></li>
+    </ul>
+</div>
+{% endblock %}
