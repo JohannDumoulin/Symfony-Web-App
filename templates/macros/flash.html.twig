@@ -1,0 +1,7 @@
+{% macro flash(name) %}
+    {% for message in app.flashes(name) %}
+        <div class="alert alert-success">
+            {{ message }}
+        </div>
+    {% endfor %}
+{% endmacro %}
