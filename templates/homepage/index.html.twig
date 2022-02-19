@@ -6,15 +6,6 @@
 
 {% block title %}Hello HomepageController!{% endblock %}
 
-{% block header %}
-    {% if is_granted('ROLE_USER') %}
-        <a href="{{ path('user_account') }}">Mon compte</a>
-    {% else %}
-        <a href="{{ path('login') }}">Connexion</a>
-        <a href="{{ path('register') }}">Inscription</a>
-    {% endif %}
-{% endblock %}
-
 {% block content %}
     <div class="example-wrapper">
         {% if is_granted('ROLE_USER') %}

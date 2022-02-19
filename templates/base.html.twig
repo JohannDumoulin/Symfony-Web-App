@@ -11,11 +11,14 @@
     </head>
     <body>
         <header>
-            {% block header %}{% endblock %}
+            {% block header %}
+                {% include 'header/_header.html.twig' %}
+            {% endblock %}
         </header>
 
         <main>
             {% block content %}{% endblock %}
+            {{ dump() }}
         </main>
 
         <footer>
