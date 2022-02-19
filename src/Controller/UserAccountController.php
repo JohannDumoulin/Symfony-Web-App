@@ -8,7 +8,12 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class UserAccountController extends AbstractController
 {
-    #[Route('/user/account', name: 'user_account')]
+    /**
+     * @Route({
+        "en": "/account",
+     *  "fr": "/mon-compte"
+     * }, name="user_account")
+     */
     public function index(): Response
     {
         $this->denyAccessUnlessGranted('ROLE_USER');

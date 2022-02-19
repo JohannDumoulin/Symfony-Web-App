@@ -8,7 +8,6 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class HomepageController extends AbstractController
 {
-    #[Route('/', name: 'homepage')]
     public function index(): Response
     {
         $this->addFlash('error', 'form.comment.content_not_blank');
