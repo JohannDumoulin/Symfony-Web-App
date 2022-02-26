@@ -11,7 +11,6 @@ class HomepageController extends AbstractController
     public function index(): Response
     {
         $this->addFlash('error', 'form.comment.content_not_blank');
-        $locales = $this->getParameter('app_locales');
 
         return $this->render('homepage/index.html.twig', [
             'controller_name' => 'HomepageController'
