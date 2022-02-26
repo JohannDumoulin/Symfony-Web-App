@@ -1,1 +1,7 @@
-site_name: La glace des seigneurs
+login: Login
+logout: Logout
+register: Register
+settings: Parameters
+site_name: The ice of the lords
+user:
+  my_account: Account

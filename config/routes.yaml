@@ -1,5 +1,7 @@
 homepage:
-  path: '/'
+  path:
+    en: '/en'
+    fr: '/'
   defaults:
     _controller: App\Controller\HomepageController::index
     _locale: '%locale%'
