@@ -33,7 +33,7 @@ class Address
     #[ORM\Column(type: 'string', length: 255)]
     private $addressLineSecond;
 
-    #[ORM\ManyToMany(targetEntity: Customer::class, mappedBy: 'address')]
+    #[ORM\ManyToMany(targetEntity: User::class, mappedBy: 'address')]
     private $customers;
 
     public function __construct()
@@ -119,14 +119,14 @@ class Address
     }
 
     /**
-     * @return Collection|Customer[]
+     * @return Collection|User[]
      */
     public function getCustomers(): Collection
     {
         return $this->customers;
     }
 
-    public function addCustomer(Customer $customer): self
+    public function addCustomer(User $customer): self
     {
         if (!$this->customers->contains($customer)) {
             $this->customers[] = $customer;
@@ -136,7 +136,7 @@ class Address
         return $this;
     }
 
-    public function removeCustomer(Customer $customer): self
+    public function removeCustomer(User $customer): self
     {
         if ($this->customers->removeElement($customer)) {
             $customer->removeAddress($this);

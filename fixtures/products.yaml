@@ -1,0 +1,20 @@
+App\Entity\Product:
+  product_1:
+    name: "Batonnet à la mangue"
+    price: 10
+    src: "build/images/mango.png"
+
+  product_2:
+    name: "Cône à la mangue"
+    price: 10
+    src: "build/images/exotic-mango-cone.png"
+
+  product_3:
+    name: "Mochi à la mangue"
+    price: 10
+    src: "build/images/mochi-mangue.png"
+
+  product_4:
+    name: "Bac à la mangue"
+    price: 10
+    src: "build/images/mangue-bac.png"
