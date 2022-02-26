@@ -1,6 +1,6 @@
 <div class="navbar bg-base-100 mb-40 shadow-xl rounded-box">
     <div class="flex-1">
-        <a class="btn btn-ghost normal-case text-xl">{{ 'site_name'|trans }}</a>
+        <a href="{{ url('homepage') }}" class="btn btn-ghost normal-case text-xl">{{ 'site_name'|trans }}</a>
     </div>
     <div class="flex-none">
         <div class="dropdown dropdown-end">
@@ -20,29 +20,58 @@
                 </div>
             </div>
         </div>
+
+        {% if is_granted('ROLE_USER') %}
+            <div class="dropdown dropdown-end">
+                <label tabindex="0" class="btn btn-ghost btn-circle avatar">
+                    <div class="w-10 rounded-full">
+                        <img src="https://api.lorem.space/image/face?hash=33791">
+                    </div>
+                </label>
+                <ul tabindex="0" class="mt-3 p-2 shadow menu menu-compact dropdown-content bg-base-100 rounded-box w-52">
+                    <li>
+                        <a href="{{ path('user_account') }}" class="justify-between">
+                            {{ 'user.my_account'|trans }}
+                            <span class="badge">New</span>
+                        </a>
+                    </li>
+                    <li><a>{{ 'settings'|trans }}</a></li>
+                    <li><a href="{{ path('app_logout') }}">{{ 'logout'|trans }}</a></li>
+                </ul>
+            </div>
+        {% else %}
+            <div class="dropdown dropdown-end">
+                <label tabindex="0" class="btn btn-ghost btn-circle avatar">
+                    <div class="w-10 rounded-full">
+                        <img src="https://api.lorem.space/image/face?hash=33791">
+                    </div>
+                </label>
+                <ul tabindex="0" class="mt-3 p-2 shadow menu menu-compact dropdown-content bg-base-100 rounded-box w-52">
+                    <li>
+                        <a href="{{ path('login') }}">{{ 'login'|trans }}</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('register') }}">{{ 'register'|trans }}</a>
+                    </li>
+                </ul>
+            </div>
+        {% endif %}
+
         <div class="dropdown dropdown-end">
             <label tabindex="0" class="btn btn-ghost btn-circle avatar">
-                <div class="w-10 rounded-full">
-                    <img src="https://api.lorem.space/image/face?hash=33791">
-                </div>
+                {{ app.request.locale }}
             </label>
             <ul tabindex="0" class="mt-3 p-2 shadow menu menu-compact dropdown-content bg-base-100 rounded-box w-52">
-                <li>
-                    <a class="justify-between">
-                        Profile
-                        <span class="badge">New</span>
-                    </a>
-                </li>
-                <li><a>Settings</a></li>
-                <li><a>Logout</a></li>
+                {% set route = app.request.attributes.get('_route') %}
+                {% set route_params = app.request.attributes.get('_route_params') %}
+                {% set params = route_params|merge(app.request.query.all) %}
+
+                {% for locale in localeList.localeList|split('|') %}
+                    <li>
+                        <a href="{{ path(route, params|merge({ _locale: locale })) }}" class="uppercase font-semibold">{{ locale }}</a>
+                    </li>
+                {% endfor %}
             </ul>
         </div>
     </div>
-
-    {% if is_granted('ROLE_USER') %}
-        <a href="{{ path('user_account') }}">Mon compte</a>
-    {% else %}
-        <a href="{{ path('login') }}">Connexion</a>
-        <a href="{{ path('register') }}">Inscription</a>
-    {% endif %}
 </div>

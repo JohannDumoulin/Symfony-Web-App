@@ -1,1 +1,7 @@
+login: Se connecter
+logout: Déconnexion
+register: S'inscrire
+settings: Paramètres
 site_name: La glace des seigneurs
+user:
+  my_account: Mon compte

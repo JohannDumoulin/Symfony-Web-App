@@ -21,8 +21,6 @@
         </ul>
     </div>
 
-    <p>La langue actuelle est : {{ app.request.locale }}</p>
-
     <p>La variable search passé en paramètre à l'url est : {{ app.request.get('search')|default('search is not defined') }}</p>
     <p>La varariable page2 passé en paramètre à l'url est : {{ app.request.get('page2')|default('page2 is not defined') }}</p>
 
