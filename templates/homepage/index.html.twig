@@ -7,25 +7,37 @@
 {% block title %}Hello HomepageController!{% endblock %}
 
 {% block content %}
-    <div class="example-wrapper">
-        {% if is_granted('ROLE_USER') %}
-            <h1 class="text-3xl font-bold underline">Bienvenue {{ app.user.email }} sur la glace des seigneurs !</h1>
-        {% else %}
-            <h1 class="text-3xl font-bold underline">Bienvenue sur la glace des seigneurs !</h1>
-        {% endif %}
+    {% if is_granted('ROLE_USER') %}
+        <h1 class="text-3xl font-bold text-center">{{ 'welcome_to_our_site_connected'|trans({'%username%': app.user.email}) }}</h1>
+    {% else %}
+        <h1 class="text-3xl font-bold text-center">{{ 'welcome_to_our_site'|trans }}</h1>
+    {% endif %}
 
-        This friendly message is coming from:
-        <ul>
-            <li>Your controller at <code><a href="{{ '/Users/johann/workspace/symfony-web-app/src/Controller/HomepageController.php'|file_link(0) }}">src/Controller/HomepageController.php</a></code></li>
-            <li>Your template at <code><a href="{{ '/Users/johann/workspace/symfony-web-app/templates/homepage/index.html.twig'|file_link(0) }}">templates/homepage/index.html.twig</a></code></li>
-        </ul>
+    <div class="flex justify-center">
+        <a href="{{ path('products_index') }}" class="btn btn-primary mx-auto mt-8">{{ 'discover_products'|trans }}</a>
     </div>
+
+    <div class="flex justify-center">
+        <a href="{{ path('contact') }}" class="btn mx-auto mt-8">{{ 'contact_us'|trans }}</a>
+    </div>
+
+
+
+    {#
+    This friendly message is coming from:
+    <ul>
+        <li>Your controller at <code><a href="{{ '/Users/johann/workspace/symfony-web-app/src/Controller/HomepageController.php'|file_link(0) }}">src/Controller/HomepageController.php</a></code></li>
+        <li>Your template at <code><a href="{{ '/Users/johann/workspace/symfony-web-app/templates/homepage/index.html.twig'|file_link(0) }}">templates/homepage/index.html.twig</a></code></li>
+    </ul>
+
 
     <p>La variable search passé en paramètre à l'url est : {{ app.request.get('search')|default('search is not defined') }}</p>
     <p>La varariable page2 passé en paramètre à l'url est : {{ app.request.get('page2')|default('page2 is not defined') }}</p>
+    #}
 
     {#  {{ macros }}#}
 
+    {#
         {% set content %}
         # Hello world
         - point 1
@@ -33,4 +45,6 @@
         {% endset %}
 
         {{ content | markdown_to_html|raw }}
+
+    #}
     {% endblock %}

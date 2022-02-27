@@ -1,7 +1,20 @@
+already_account: Vous avez déjà un compte ? Connectez vous
+contact_us: Nous contacter
+discover_products: Découvrez notre gamme de produits
+here: ici
 login: Se connecter
 logout: Déconnexion
+no_account: Vous n'avez pas de compte ? Inscrivez vous
+our_mango_product: Notre gamme de glace à la mangue
+product:
+  back_to_list: Retour à la liste des produits
+  not_available_yet: Ce produit n'est pas encore disponible
+  register_before_add_cart: Conncetez vous pour ajouter ce produit à votre panier
 register: S'inscrire
 settings: Paramètres
 site_name: La glace des seigneurs
 user:
   my_account: Mon compte
+view_cart: Voir le panier
+welcome_to_our_site: Bienvenue sur la glace des seigneurs !
+welcome_to_our_site_connected: Bienvenue %username% sur la glace des seigneurs !

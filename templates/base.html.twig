@@ -10,13 +10,13 @@
         {% endblock %}
     </head>
     <body>
-        <header>
+        <header class="m-4">
             {% block header %}
                 {% include 'header/_header.html.twig' %}
             {% endblock %}
         </header>
 
-        <main>
+        <main class="max-w-screen-xl w-4/5 mx-auto">
             {% block content %}{% endblock %}
         </main>
 

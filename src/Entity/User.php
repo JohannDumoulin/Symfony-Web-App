@@ -38,6 +38,9 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      */
     private $isVerified = false;
 
+    #[ORM\Column(type: 'array', nullable: true)]
+    private $cart = [];
+
     public function __construct()
     {
         $this->address = new ArrayCollection();
@@ -164,6 +167,18 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function removeAddress(Address $address): self
     {
         $this->address->removeElement($address);
+
+        return $this;
+    }
+
+    public function getCart(): ?array
+    {
+        return $this->cart;
+    }
+
+    public function setCart(?array $cart): self
+    {
+        $this->cart = $cart;
 
         return $this;
     }

@@ -3,38 +3,32 @@
 {% block title %}Product{% endblock %}
 
 {% block content %}
-    <h1>Product</h1>
+    <div class="prose mb-8">
+        <h1>{{ product.name }}</h1>
+    </div>
 
-    <table class="table">
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ product.id }}</td>
-            </tr>
-            <tr>
-                <th>Name</th>
-                <td>{{ product.name }}</td>
-            </tr>
-            <tr>
-                <th>Description</th>
-                <td>{{ product.description }}</td>
-            </tr>
-            <tr>
-                <th>Price</th>
-                <td>{{ product.price }}</td>
-            </tr>
-            <tr>
-                <th>Src</th>
-                <td>
-                    <img src="{{ asset(product.src) }}" alt="{{ product.name }}" class="h-64 mx-auto">
-                </td>
-            </tr>
-        </tbody>
-    </table>
+    <div class="flex">
+        <div class="h-64 w-64 mr-16">
+            <img src="{{ asset(product.src) }}" alt="{{ product.name }}" class="h-full mx-auto object-contain">
+        </div>
 
-    <a href="{{ path('products_index') }}">back to list</a>
+        <div>
+            <p class="mb-8">{{ product.description }}</p>
+            <p class="font-semibold text-lg">{{ product.price }} €</p>
 
-    <a href="{{ path('products_edit', {'id': product.id}) }}">edit</a>
+            {% if is_granted('ROLE_USER') %}
+                <a href="" class="btn mt-8">{{ 'product.not_available_yet'|trans }}</a>
+            {% else %}
+                <a href="{{ path('login') }}" class="btn mt-8">{{ 'product.register_before_add_cart'|trans }}</a>
+            {% endif %}
+        </div>
+    </div>
 
-    {{ include('products/_delete_form.html.twig') }}
+    <a href="{{ path('products_index') }}" class="btn btn-primary mt-8">{{ 'product.back_to_list'|trans }}</a>
+
+    {# <a href="{{ path('products_edit', {'id': product.id}) }}">edit</a> #}
+
+
+
+    {# {{ include('products/_delete_form.html.twig') }} #}
 {% endblock %}

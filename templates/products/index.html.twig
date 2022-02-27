@@ -3,8 +3,28 @@
 {% block title %}Product index{% endblock %}
 
 {% block content %}
-    <h1>Product index</h1>
+    <div class="prose mb-8">
+        <h1>{{ 'our_mango_product'|trans }}</h1>
+    </div>
 
+    <div class="flex flex-wrap">
+        {% for product in products %}
+            <div class="w-1/3 p-5">
+                <a href="{{ path('products_show', {'id': product.id}) }}" class="btn btn-ghost h-auto flex flex-col p-4">
+                    <img src="{{ asset(product.src) }}" alt="{{ product.name }}" class="h-64 mx-auto object-cover">
+                    <span class="mt-6 mb-3">{{ product.name }}</span>
+                    <span>{{ product.price }} €</span>
+                </a>
+            </div>
+
+        {% else %}
+            <tr>
+                <td colspan="6">no records found</td>
+            </tr>
+        {% endfor %}
+    </div>
+
+    {#
     <table class="table">
         <thead>
             <tr>
@@ -17,27 +37,10 @@
             </tr>
         </thead>
         <tbody>
-        {% for product in products %}
-            <tr>
-                <td>{{ product.id }}</td>
-                <td>{{ product.name }}</td>
-                <td>{{ product.description }}</td>
-                <td>{{ product.price }}</td>
-                <td>
-                    <img src="{{ asset(product.src) }}" alt="{{ product.name }}" class="h-64 mx-auto">
-                </td>
-                <td>
-                    <a href="{{ path('products_show', {'id': product.id}) }}">show</a>
-                    <a href="{{ path('products_edit', {'id': product.id}) }}">edit</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="6">no records found</td>
-            </tr>
-        {% endfor %}
+
         </tbody>
     </table>
 
     <a href="{{ path('products_new') }}">Create new</a>
+    #}
 {% endblock %}

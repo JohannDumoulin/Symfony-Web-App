@@ -8,7 +8,13 @@
         <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
     {% endif %}
 
-    <form action="{{ path('login') }}" method="post">
+    <div class="prose">
+        <h1>{{ 'login'|trans }}</h1>
+
+        <p class="font-semibold text-lg">{{ 'no_account'|trans }} <a href="{{ path('register') }}">{{ 'here'|trans }}</a></p>
+    </div>
+
+    <form action="{{ path('login') }}" method="post" class="mt-16">
         <label for="username">Email:</label>
         <input type="text" id="username" name="_username" value="{{ last_username }}"/>
 
@@ -18,6 +24,6 @@
         {# If you want to control the URL the user is redirected to on success
         <input type="hidden" name="_target_path" value="/account"/> #}
 
-        <button type="submit">login</button>
+        <button type="submit" class="btn">login</button>
     </form>
 {% endblock %}

@@ -8,6 +8,7 @@ App\Entity\Product:
     name: "Cône à la mangue"
     price: 10
     src: "build/images/exotic-mango-cone.png"
+    description: "Qu'est-ce qu'il a l'air bon ce cône..."
 
   product_3:
     name: "Mochi à la mangue"
