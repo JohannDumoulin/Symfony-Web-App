@@ -3,19 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="c793a972-a8d3-4ae0-a96a-ef5b3149a221" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fixtures/products.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/fixtures/products.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/CustomerRepository.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tailwind.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/tailwind.config.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/header/_header.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/header/_header.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/homepage/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/homepage/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/login/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/login/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/products/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/products/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/products/show.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/products/show.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/registration/register.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/registration/register.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/routes.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/routes.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/UserAccountController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/UserAccountController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/user_account/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/user_account/index.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/translations/messages.en.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/translations/messages.en.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/translations/messages.fr.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/translations/messages.fr.yaml" afterDir="false" />
     </list>
@@ -207,7 +197,8 @@
       <workItem from="1645275525442" duration="11608000" />
       <workItem from="1645515620267" duration="68000" />
       <workItem from="1645877608173" duration="11400000" />
-      <workItem from="1645987379659" duration="5690000" />
+      <workItem from="1645987379659" duration="6021000" />
+      <workItem from="1646078995023" duration="1740000" />
     </task>
     <servers />
   </component>

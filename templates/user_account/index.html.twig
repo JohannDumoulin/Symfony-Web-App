@@ -4,17 +4,12 @@
 
 {% block content %}
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+    <div class="prose">
+        <h1>{{ 'user.my_account'|trans }}</h1>
 
-    <p>User account</p>
+        <p class="font-semibold text-lg">{{ 'hello'|trans }} {{ app.user.email }} !</p>
+    </div>
 
-    <a href="{{ path('app_logout') }}">Déconnexion</a>
+    <a href="{{ path('app_logout') }}" class="btn mt-8">{{ 'logout'|trans }}</a>
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ '/Users/johann/workspace/symfony-web-app/src/Controller/UserAccountController.php'|file_link(0) }}">src/Controller/UserAccountController.php</a></code></li>
-        <li>Your template at <code><a href="{{ '/Users/johann/workspace/symfony-web-app/templates/user_account/index.html.twig'|file_link(0) }}">templates/user_account/index.html.twig</a></code></li>
-    </ul>
-</div>
 {% endblock %}
